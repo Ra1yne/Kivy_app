@@ -1,37 +1,40 @@
 <FlashcardScreen>:
     BoxLayout:
         orientation: "vertical"
+        padding: [10, 10, 10, 10]
         spacing: 10
-        padding: 10
 
-        # Input fields for adding a flashcard
+        # Input fields for question and answer
         TextInput:
             id: flashcard_question_input
             hint_text: "Enter Question"
-
+            multiline: False
         TextInput:
             id: flashcard_answer_input
             hint_text: "Enter Answer"
+            multiline: False
 
+        # Button to add a flashcard
         Button:
             text: "Add Flashcard"
             on_press: root.add_flashcard(flashcard_question_input.text, flashcard_answer_input.text)
 
-        # Flashcard display area
+        # Display current question and answer
         Label:
             id: flashcard_question
             text: "No flashcards yet!"
             font_size: 20
+            color: [1, 1, 1, 1]  # White text
 
         Label:
             id: flashcard_answer
             text: ""
             font_size: 18
-            color: 0, 0, 0, 1  # Hidden until the user flips the card
+            color: [1, 1, 1, 1]  # White text
 
-        # Flashcard controls
+        # Buttons for flipping and navigating
         BoxLayout:
-            size_hint_y: 0.3
+            orientation: "horizontal"
             spacing: 10
 
             Button:
