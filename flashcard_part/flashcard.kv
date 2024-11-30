@@ -1,0 +1,43 @@
+<FlashcardScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        padding: 10
+
+        # Input fields for adding a flashcard
+        TextInput:
+            id: flashcard_question_input
+            hint_text: "Enter Question"
+
+        TextInput:
+            id: flashcard_answer_input
+            hint_text: "Enter Answer"
+
+        Button:
+            text: "Add Flashcard"
+            on_press: root.add_flashcard(flashcard_question_input.text, flashcard_answer_input.text)
+
+        # Flashcard display area
+        Label:
+            id: flashcard_question
+            text: "No flashcards yet!"
+            font_size: 20
+
+        Label:
+            id: flashcard_answer
+            text: ""
+            font_size: 18
+            color: 0, 0, 0, 1  # Hidden until the user flips the card
+
+        # Flashcard controls
+        BoxLayout:
+            size_hint_y: 0.3
+            spacing: 10
+
+            Button:
+                text: "Flip"
+                on_press: root.flip_flashcard()
+
+            Button:
+                text: "Next"
+                on_press: root.next_flashcard()
